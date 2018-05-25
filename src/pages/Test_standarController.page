@@ -1,0 +1,9 @@
+<apex:page standardController="Opportunity" extensions="myControllerExtension">
+<!-- extensions="myControllerExtension" -->
+    <!-- {!greeting} <p/> -->
+    <apex:form >
+        <apex:outputField value="{!oppy.name}"/> <p/>
+        <apex:outputField value="{!oppy.status__c}"/> <p/>
+        <apex:commandButton value="Save" action="{!save}"/>
+    </apex:form>
+</apex:page>

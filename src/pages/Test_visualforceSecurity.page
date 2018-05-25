@@ -1,0 +1,35 @@
+<apex:page standardController="Account" extensions="Test_visualforceSecurityControll">
+  <apex:form>
+    <apex:commandButton rerender="outputIt" value="Update It"/>
+    <apex:inputText value="{!myTextField}"/>
+  </apex:form>
+  <br />
+  <apex:outputPanel id="outputIt">
+			<apex:outputPanel id="HTMLENCODEoutputIt"> 
+			  Value of HTMLENCODE is : <apex:outputText value="{!HTMLENCODE(myTextField)}" escape="false"/>
+			</apex:outputPanel>    
+			<br />
+			<apex:outputPanel id="JSNCODEoutputIt"> 
+			  Value of JSNCODE is : <apex:outputText value="{!JSENCODE(myTextField)}" escape="false"/>
+			</apex:outputPanel>  
+			<br />
+			<apex:outputPanel id="JSINHTMLENCODEoutputIt"> 
+			  Value of JSINHTMLENCODE is : <apex:outputText value="{!JSINHTMLENCODE(myTextField)}" escape="false"/>
+			</apex:outputPanel>  
+			<br />  
+			<apex:outputPanel id="URLENCODEoutputIt"> 
+			  Value of URLENCODE is : <apex:outputText value="{!URLENCODE(myTextField)}" escape="false"/>
+			</apex:outputPanel> 
+
+			<apex:outputLink value="{!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,8))}" id="campaignId1">
+                        {!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,8))}
+      </apex:outputLink>
+      <apex:outputLink value="{!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,9))}" id="campaignId2">
+                        {!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,9))}
+      </apex:outputLink>
+      <apex:outputLink value="{!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,10))}" id="campaignId3">
+                        {!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,10))}
+      </apex:outputLink>
+	</apex:outputPanel>
+</apex:page>
+
